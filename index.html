@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>璐总市场速报 2026.08.23</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --surface-alt: #f5f5f4;
+    --border: #e7e5e4;
+    --border-light: #f0eeec;
+    --text: #1c1917;
+    --text-secondary: #78716c;
+    --text-tertiary: #a8a29e;
+    --accent: #292524;
+    --accent-hover: #44403c;
+    --gold: #b45309;
+    --gold-bg: #fffbeb;
+    --green: #15803d;
+    --green-bg: #f0fdf4;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --blue: #1d4ed8;
+    --blue-bg: #eff6ff;
+    --purple: #7c3aed;
+    --purple-bg: #f5f3ff;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.06), 0 4px 6px -4px rgba(0,0,0,0.04);
+    --radius: 12px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--accent);
+    color: #fafaf9;
+    padding: 48px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(180,83,9,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-date {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250,250,249,0.5);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(250,250,249,0.65);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* Nav */
+  .nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.92);
+  }
+  .nav-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 24px;
+  }
+  .nav-item {
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: 0.3px;
+  }
+  .nav-item:hover { color: var(--text-secondary); }
+  .nav-item.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Content */
+  .content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* Summary */
+  .summary {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--text);
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+  .summary strong {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    letter-spacing: 1px;
+    min-width: 28px;
+  }
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s ease;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  .card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .card-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.85;
+    margin-bottom: 12px;
+  }
+  .card-body strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* Insight box */
+  .insight {
+    background: var(--surface-alt);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    border-left: 3px solid var(--border);
+  }
+  .insight strong { color: var(--text); }
+
+  /* Talk bubble */
+  .talk {
+    background: var(--accent);
+    color: #fafaf9;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.9;
+    position: relative;
+    font-weight: 300;
+  }
+  .talk-label {
+    position: absolute;
+    top: -9px;
+    left: 16px;
+    background: var(--gold);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .talk p { margin-top: 4px; }
+
+  /* Bonus */
+  .bonus {
+    background: var(--gold-bg);
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: #92400e;
+    line-height: 1.8;
+  }
+  .bonus-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .tag-up { background: var(--green-bg); color: var(--green); }
+  .tag-down { background: var(--red-bg); color: var(--red); }
+  .tag-neutral { background: var(--blue-bg); color: var(--blue); }
+  .tag-warn { background: var(--gold-bg); color: var(--gold); }
+
+  /* Data grid */
+  .data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .data-cell {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .data-cell:hover { box-shadow: var(--shadow); }
+  .data-cell-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .data-cell-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  }
+  .data-cell-note {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+  }
+  .val-up { color: var(--green); }
+  .val-down { color: var(--red); }
+
+  /* Q&A */
+  .qa {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .qa:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .qa-q {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .qa-q-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-family: 'Inter', sans-serif;
+  }
+  .qa-a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    padding-left: 32px;
+  }
+
+  /* Sector cards */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .sector-card {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: box-shadow 0.2s;
+  }
+  .sector-card:hover { box-shadow: var(--shadow); }
+  .sector-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .sector-info { flex: 1; }
+  .sector-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .sector-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .sector-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Style comparison */
+  .style-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .style-card {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .style-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .style-card-body {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Next week */
+  .next-list {
+    margin: 16px 0;
+  }
+  .next-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .next-item:last-child { border-bottom: none; }
+  .next-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .next-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .next-text strong { color: var(--text); font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    line-height: 1.8;
+    border-top: 1px solid var(--border-light);
+    margin-top: 20px;
+  }
+
+  /* Category header in deep talk */
+  .cat-header {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 24px;
+    margin-top: 40px;
+  }
+  .cat-header:first-child { margin-top: 0; }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .hero { padding: 64px 32px 52px; }
+    .hero h1 { font-size: 34px; }
+    .content { padding: 40px 32px 80px; }
+    .card { padding: 28px; }
+    .data-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  /* Smooth transitions */
+  .panel.active {
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 20px 0;
+  }
+
+  /* Highlight number */
+  .hl-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--text);
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-date">2026 / 08 / 23</div>
+    <h1>市场速报</h1>
+    <div class="hero-sub">来自我工作群里的浙商周报精华提炼 &middot; 璐总专用</div>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <div class="nav-inner">
+    <div class="nav-item active" onclick="switchTab(0)">本周要点</div>
+    <div class="nav-item" onclick="switchTab(1)">板块与风格</div>
+    <div class="nav-item" onclick="switchTab(2)">深度话术</div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ==================== TAB 1: 本周要点 ==================== -->
+<div class="panel active" id="panel-0">
+
+  <div class="summary">
+    美债长端利率回落，金价持续修复，Au9999升至<strong>986元/克</strong>。A股本周下跌为主，上证-0.56%，科创50跌3.73%。美国联邦政府债务突破<strong>40万亿美元</strong>，财政部扩大回购规模。碳酸锂连续<strong>16周去库</strong>，多晶硅升破成本线。
+  </div>
+
+  <!-- Key Data -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">关键数据</span>
+    </div>
+    <div class="data-grid">
+      <div class="data-cell">
+        <div class="data-cell-label">美国10Y美债</div>
+        <div class="data-cell-value">4.74%</div>
+        <div class="data-cell-note">前值4.72%，小幅上行</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">美国2Y美债</div>
+        <div class="data-cell-value">4.24%</div>
+        <div class="data-cell-note">前值4.19%</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">9月加息概率</div>
+        <div class="data-cell-value val-down">30-40%</div>
+        <div class="data-cell-note">上周33-40%，继续降温</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">美国联邦债务</div>
+        <div class="data-cell-value val-down">40万亿</div>
+        <div class="data-cell-note">美元，突破历史关口</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">中国7月工业增加值</div>
+        <div class="data-cell-value val-down">4.5%</div>
+        <div class="data-cell-note">前值5.3%，回落</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">上证指数PE</div>
+        <div class="data-cell-value val-down">79%</div>
+        <div class="data-cell-note">分位数，PE16.42</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">黄金 Au9999</div>
+        <div class="data-cell-value val-up">~986</div>
+        <div class="data-cell-note">元/克，区间上移</div>
+      </div>
+      <div class="data-cell">
+        <div class="data-cell-label">碳酸锂期货</div>
+        <div class="data-cell-value val-up">158680</div>
+        <div class="data-cell-note">元/吨，连续16周去库</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Market Overview -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">市场全景</span>
+    </div>
+
+    <div class="card">
+      <div class="card-label">A股</div>
+      <div class="card-title">下跌为主，短期存在分歧</div>
+      <div class="tags">
+        <span class="tag tag-down">上证 -0.56%</span>
+        <span class="tag tag-down">深成指 -1.81%</span>
+        <span class="tag tag-down">创业板 -2.23%</span>
+        <span class="tag tag-down">科创50 -3.73%</span>
+      </div>
+      <div class="card-body">
+        领涨：石油石化、有色金属、银行。领跌：传媒、计算机、国防军工。<br>
+        日均成交额回落至<strong>2.2万亿</strong>，市场存在观望情绪。全A PE分位数<strong>86.60%</strong>。<br>
+        当前处于中报验证窗口和存量轮动加速的双重观察期。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">黄金 / 白银</div>
+      <div class="card-title">美债利率回落，金价持续修复</div>
+      <div class="card-body">
+        金价区间上移，Au9999约<strong>986元/克</strong>，COMEX黄金约4611美元/盎司。<br>
+        财政部扩大长期国债回购规模（从20亿提高至至少40亿美元），压低长端收益率上行空间。<br>
+        9月加息概率回落至约<strong>30-40%</strong>，12月加息概率约40%。<br>
+        银价继续反弹，金银比价<strong>66</strong>附近。SPDR黄金ETF持仓增加约15吨。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">海外</div>
+      <div class="card-title">美国债务突破40万亿，特朗普对伊朗"毁灭性经济行动"</div>
+      <div class="card-body">
+        美国联邦政府债务总额突破40万亿美元，过去一年增加3万亿美元，为疫情以来最快增速。<br>
+        财政部宣布将10-30年期国债流动性支持回购规模"至少扩大一倍"，由20亿提高至40亿美元。<br>
+        地缘：特朗普宣布对伊朗实施"毁灭性经济行动"，美伊60天谅解备忘录谈判窗口8月17日到期作废，霍尔木兹海峡继续关闭，通航量处个位数低位。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">国内</div>
+      <div class="card-title">7月多项经济指标继续回落</div>
+      <div class="card-body">
+        7月规模以上工业增加值同比+4.5%（前值5.3%），社零+0.6%（前值1.0%），服务业生产指数+4.3%。<br>
+        1-7月固投同比-6.7%（前值-5.7%），其中房地产投资-19.2%（前值-18%）。<br>
+        城镇调查失业率5.2%（前值5.0%），环比上升0.2个百分点。<br>
+        亮点：高技术制造业增加值+16.9%，数字产品制造业+17.3%，工业机器人产量增幅超20%。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">碳酸锂</div>
+      <div class="card-title">强现实定价权重提升，盘面偏强运行</div>
+      <div class="card-body">
+        碳酸锂期货主力2609合约价格震荡走强，8月21日收盘价<strong>158680元/吨</strong>。<br>
+        产业链库存连续<strong>16周去库</strong>（上周15周）。截至8月20日，冶炼厂库存11486吨，下游库存35515吨。<br>
+        8月电池排产维持上涨，磷酸铁锂7月产量53.8万吨，环比+7%。下游排产仍显景气，江西复产进度不及预期，盐湖周度减量较多。<br>
+        远期有津巴布韦禁令发酵可能，预计碳酸锂价格仍有上行空间。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">工业硅 / 多晶硅</div>
+      <div class="card-title">多晶硅升破成本线，关注"反内卷"落地</div>
+      <div class="card-body">
+        工业硅区间震荡，区间为[8000,9500]元/吨。当前处于开工低位、需求弱稳、库存承压状态。<br>
+        多晶硅头部企业复产、产量快速爬坡，行业产量边际增加。CPIA预计2026年国内光伏新增装机规模在180-240GW。<br>
+        反内卷政策有利于长期出清但不应高估短期效果，多晶硅短期预计偏强运行，当价格上探至4万以上，基本面权重将提升。
+      </div>
+    </div>
+  </div>
+
+  <!-- Next Week -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">下周关注</span>
+    </div>
+    <div class="next-list">
+      <div class="next-item">
+        <div class="next-dot"></div>
+        <div class="next-text"><strong>美国8月就业数据</strong> —— 继续验证就业市场走势</div>
+      </div>
+      <div class="next-item">
+        <div class="next-dot"></div>
+        <div class="next-text"><strong>9月美联储议息会议预期博弈</strong> —— 加息概率还会怎么变</div>
+      </div>
+      <div class="next-item">
+        <div class="next-dot"></div>
+        <div class="next-text"><strong>A股中报密集披露期</strong> —— 业绩验证窗口，板块分化可能加剧</div>
+      </div>
+      <div class="next-item">
+        <div class="next-dot"></div>
+        <div class="next-text"><strong>国内增量政策落地</strong> —— 政治局会议的政策何时出台</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    数据来源：傻逼浙商周报<br>
+    仅供参考，不构成投资建议。市场有风险，投资需谨慎。嘻嘻。<br><br>
+    <a href="20260816.html" style="color: var(--text-tertiary); text-decoration: underline;">历史版本：2026.08.16</a> &middot;
+    <a href="20260809.html" style="color: var(--text-tertiary); text-decoration: underline;">2026.08.09</a>
+  </div>
+
+</div>
+
+<!-- ==================== TAB 2: 板块与风格 ==================== -->
+<div class="panel" id="panel-1">
+
+  <div class="summary">
+    按板块、风格、主题整理的具体观点。
+  </div>
+
+  <!-- Sector Performance -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">本周板块表现</span>
+    </div>
+
+    <div class="sector-grid">
+      <div class="sector-card">
+        <div class="sector-icon" style="background:var(--green-bg);"></div>
+        <div class="sector-info">
+          <div class="sector-name">石油石化</div>
+          <div class="sector-desc">本周领涨。地缘冲突升级（特朗普对伊朗"毁灭性经济行动"）推升油价预期，石油石化板块受益。</div>
+        </div>
+        <div class="sector-tag tag-up">领涨</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:var(--green-bg);">📈</div>
+        <div class="sector-info">
+          <div class="sector-name">有色金属</div>
+          <div class="sector-desc">上周领跌后本周反弹。黄金、铜等品种价格坚挺，美债利率回落利好贵金属。</div>
+        </div>
+        <div class="sector-tag tag-up">领涨</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:var(--green-bg);">📈</div>
+        <div class="sector-info">
+          <div class="sector-name">银行</div>
+          <div class="sector-desc">防御属性凸显。市场下跌时银行板块相对抗跌，高股息策略在震荡市中仍有吸引力。</div>
+        </div>
+        <div class="sector-tag tag-up">领涨</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:var(--red-bg);"></div>
+        <div class="sector-info">
+          <div class="sector-name">传媒</div>
+          <div class="sector-desc">本周领跌。估值分位数已高（96%），前期涨幅较大后获利回吐。</div>
+        </div>
+        <div class="sector-tag tag-down">领跌</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:var(--red-bg);">📉</div>
+        <div class="sector-info">
+          <div class="sector-name">计算机</div>
+          <div class="sector-desc">估值分位数70%，中报验证期业绩分化，部分公司业绩不及预期导致回调。</div>
+        </div>
+        <div class="sector-tag tag-down">领跌</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:var(--red-bg);"></div>
+        <div class="sector-info">
+          <div class="sector-name">国防军工</div>
+          <div class="sector-desc">本周领跌。前期涨幅较大后获利回吐，市场风格轮动加速。</div>
+        </div>
+        <div class="sector-tag tag-down">领跌</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Style -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">风格对比</span>
+    </div>
+
+    <div class="style-row">
+      <div class="style-card">
+        <div class="style-card-title">成长 vs 价值</div>
+        <div class="style-card-body">
+          本周价值略占优（银行领涨 vs 科创50-3.73%）。成长股估值分位数已高（电子PE分位80%），价值股（银行PE分位6%）安全边际更高。
+        </div>
+      </div>
+      <div class="style-card">
+        <div class="style-card-title">大盘 vs 中小盘</div>
+        <div class="style-card-body">
+          估值分位数：中证1000 &lt; 上证50 &lt; 中证500 &lt; 沪深300。本周上证50跌1.12%，中证1000跌2.16%，大盘略抗跌。
+        </div>
+      </div>
+    </div>
+
+    <div class="style-row">
+      <div class="style-card">
+        <div class="style-card-title">高股息策略</div>
+        <div class="style-card-body">
+          银行、煤炭、公用事业等高分红板块，PE分位数低，股息率4-6%。本周银行领涨，验证了震荡市中高股息策略的有效性。
+        </div>
+      </div>
+      <div class="style-card">
+        <div class="style-card-title">科技成长</div>
+        <div class="style-card-body">
+          AI算力、半导体、固态电池、商业航天等。政策红利+国产替代逻辑强，但估值已高，适合定投或等回调。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sector Deep Dive -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">重点板块详解</span>
+    </div>
+
+    <div class="card">
+      <div class="card-label">科技 / AI</div>
+      <div class="card-title">计算机本周领跌，估值分位数仍高</div>
+      <div class="card-body">
+        北美云厂商二季报显示资本开支持续增长，云业务收入保持高增。A股AI硬件板块直接受益。<br><br>
+        <strong>细分方向：</strong>AI算力（服务器、光模块）、半导体自主可控、AI应用（大模型、智能终端）。<br>
+        <strong>风险点：</strong>估值分位数已高（电子PE分位80%，计算机70%，传媒96%），需警惕回调。本周计算机领跌就是估值消化的表现。
+      </div>
+      <div class="talk">
+        <div class="talk-label">话术</div>
+        <p>"AI是这轮行情的主线之一，北美大厂资本开支还在增长。但计算机这周领跌了，说明估值太高了需要消化。建议定投或者等回调再加仓，别一把梭。"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">消费</div>
+      <div class="card-title">7月社零仅+0.6%，消费继续疲软</div>
+      <div class="card-body">
+        7月社零同比+0.6%（前值1.0%），汽车、建筑装潢等大宗消费仍疲软。<br>
+        但有两个亮点：<br>
+        <strong>智能消费电子：</strong>平板电脑、计算机、手机价格同比涨幅超8%，AI产业红利向终端传导。<br>
+        <strong>服务消费：</strong>暑期出行热潮带动住宿、机票、旅行社收费等环比上涨，服务价格同比+0.7%。
+      </div>
+      <div class="talk">
+        <div class="talk-label">话术</div>
+        <p>"消费整体确实弱，7月社零只有0.6%了。但结构上有亮点——AI带动的智能消费电子涨得不错，暑期的旅游、酒店也火。如果客户想配消费，可以关注服务消费和智能电子这两个方向。"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">金融 / 银行</div>
+      <div class="card-title">本周领涨，高股息底仓之选</div>
+      <div class="card-body">
+        银行PE分位数仅<strong>6.03%</strong>，非银金融11.41%，处于历史极低水平。<br>
+        本周银行领涨，验证了震荡市中高股息策略的有效性。股息率普遍4-6%，远超存款利率。<br>
+        如果客户风险偏好低、追求稳定收益，银行+红利基金是不错的底仓选择。
+      </div>
+      <div class="talk">
+        <div class="talk-label">话术</div>
+        <p>"银行这周领涨了，说明市场下跌时大家还是喜欢确定性。估值已经到了历史最低区间，PE分位数才6%。股息率4-6%，比存银行强多了。如果客户不想承担太大波动，配一些银行或者红利基金当底仓，挺合适的。"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">新能源 / 碳酸锂 / 工业硅</div>
+      <div class="card-title">碳酸锂连续16周去库，多晶硅升破成本线</div>
+      <div class="card-body">
+        <strong>碳酸锂：</strong>期货主力合约收盘价<strong>158680元/吨</strong>，连续16周去库。8月电池排产维持上涨，磷酸铁锂7月产量53.8万吨，环比+7%。远期有津巴布韦禁令发酵可能。<br>
+        <strong>工业硅：</strong>区间震荡[8000,9500]元/吨，处于开工低位、需求弱稳、库存承压状态。<br>
+        <strong>多晶硅：</strong>头部企业复产、产量快速爬坡，升破成本线。CPIA预计2026年国内光伏新增装机180-240GW。反内卷政策有利于长期出清。<br>
+        <strong>机会在：</strong>固态电池、储能、出海。<br>
+        <strong>风险：</strong>传统光伏、锂电组件环节利润持续承压。
+      </div>
+      <div class="talk">
+        <div class="talk-label">话术</div>
+        <p>"新能源这周有两个好消息——碳酸锂连续去库16周了，价格还在涨；多晶硅也升破了成本线。但光伏、锂电传统环节还是内卷严重。如果要配，关注固态电池、储能这些有技术突破的方向。"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">医药</div>
+      <div class="card-title">估值合理，创新药是主线</div>
+      <div class="card-body">
+        医药板块经历长期调整后，估值已回到合理区间。创新药出海逻辑持续验证，多个国产创新药获批海外上市。<br>
+        <strong>关注方向：</strong>创新药（出海+医保谈判）、医疗器械（国产替代）、CXO（海外订单回暖）。
+      </div>
+      <div class="talk">
+        <div class="talk-label">话术</div>
+        <p>"医药跌了挺久了，估值现在不算贵。创新药出海是个好故事，好几个国产药在海外获批了。如果客户之前没配过医药，现在可以开始慢慢建仓。"</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">房地产</div>
+      <div class="card-title">仍在拖后腿，1-7月投资-19.2%</div>
+      <div class="card-body">
+        1-7月房地产投资同比下降<strong>19.2%</strong>（前值-18%），仍是拖累固投的主要因素。商品房销售面积累计-11.6%，销售额-13.6%。<br>
+        7月金融数据显示，居民中长期贷款已连续同比少增，与房地产市场调整高度吻合。<br>
+        <strong>结论：</strong>地产链短期仍有压力，不建议主动配置。但如果客户持有地产相关基金，不必恐慌割肉，政策底已现。
+      </div>
+    </div>
+  </div>
+
+  <!-- Fund Allocation -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">配置建议速查</span>
+    </div>
+    <div class="card" style="background: var(--surface-alt);">
+      <div class="card-body" style="margin-bottom: 0;">
+        <strong>保守型客户：</strong>银行/红利基金（底仓）+ 货币基金/短债（流动性）<br><br>
+        <strong>均衡型客户：</strong>沪深300指数（核心）+ 中证500/1000（卫星）+ 黄金ETF（避险）<br><br>
+        <strong>进取型客户：</strong>科创50/创业板（成长）+ AI主题基金 + 少量商品（黄金/碳酸锂）<br><br>
+        <strong>通用原则：</strong>估值已处中高位，不建议追高。中报验证窗口期，板块分化加剧。定投优于一次性买入。分散配置优于all in。
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    数据来源：傻逼浙商周报<br>
+    仅供参考，不构成投资建议。嘻嘻。
+  </div>
+
+</div>
+
+<!-- ==================== TAB 3: 深度话术 ==================== -->
+<div class="panel" id="panel-2">
+
+  <div class="summary">
+    应对客户经理深度提问的专业版回答👍展现璐总的市场理解力。
+  </div>
+
+  <!-- 板块与行业 -->
+  <div class="cat-header">板块与行业</div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "下半年什么板块最有机会？"
+    </div>
+    <div class="qa-a">
+      "这周领涨的是石油石化、有色金属、银行。从指数权重看，电子、银行、非银金融权重占比较高，依次为19.4%、16.97%及14.41%。<br><br>
+      长期看三条主线：一是AI和科技（算力、半导体、AI应用），北美云厂商资本开支持续增长，A股直接受益；二是国产替代（半导体自主可控、工业母机），政策红利明确；三是高股息（银行、煤炭、公用事业），估值极低，适合底仓。<br><br>
+      但要注意，科技股估值分位数已经不低了，电子PE分位80%，传媒96%。建议等回调再布局，或者用定投的方式平滑成本。"
+    </div>
+    <div class="bonus">
+      <div class="bonus-label">加分项</div>
+      "A股AI硬件板块当前受到美国、韩国市场映射，北美云厂商二季报显示资本开支维持增长，云业务收入保持高增，但需注意现金流健康情况。另外，2026年是'十五五'开局之年，新质生产力是政策关键词，低渗透率赛道（固态电池、商业航天、可控核聚变）有长期配置价值。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "消费板块现在能买吗？白酒怎么样？"
+    </div>
+    <div class="qa-a">
+      "消费整体偏弱，7月社零只增长了0.6%，比上月的1.0%还低。白酒作为高端消费的代表，景气度确实在下行，商务宴请、礼品需求都在收缩。<br><br>
+      但消费内部有结构分化。两个亮点值得关注：一是智能消费电子，平板、电脑、手机因为AI功能升级，价格同比涨幅超8%；二是服务消费，暑期旅游、酒店、机票都很火，服务价格同比涨了0.7%。<br><br>
+      如果客户想配消费，建议避开传统白酒，关注服务消费和智能电子方向，弹性更大。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "银行股现在还能拿吗？"
+    </div>
+    <div class="qa-a">
+      "银行这周领涨了，说明市场下跌时大家还是喜欢确定性。估值已经到了历史极低水平——PE分位数只有6.03%，意思是历史上94%的时间都比现在贵。股息率普遍4-6%，远超存款利率。<br><br>
+      对于风险偏好低的客户，银行+红利基金是很好的底仓选择。波动小、分红稳定，拿着安心。<br><br>
+      当然，银行股不太可能有大的上涨空间，更多是防守型配置。如果客户追求弹性，还是要看科技成长方向。"
+    </div>
+    <div class="bonus">
+      <div class="bonus-label">加分项</div>
+      "从行业PE分位数看，银行6.03%、非银金融11.41%，都在历史底部区域。而电子80.60%、计算机70.07%、传媒94.36%，已经在高位了。所以如果做风格切换，从成长切到价值，银行是一个不错的选择。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "新能源/碳酸锂/光伏现在怎么样了？"
+    </div>
+    <div class="qa-a">
+      "新能源这周有两个积极信号。一是碳酸锂连续16周去库，期货价格涨到15.9万/吨，8月电池排产维持上涨，磷酸铁锂7月产量53.8万吨，环比+7%。远期还有津巴布韦禁令发酵的可能。<br><br>
+      二是多晶硅升破了成本线，头部企业复产、产量快速爬坡。CPIA预计2026年国内光伏新增装机180-240GW。反内卷政策有利于长期出清。<br><br>
+      但如果要配，建议避开传统光伏组件和锂电材料，关注三个方向：一是固态电池，这是下一代电池技术；二是储能，政策强制配储带来确定性需求；三是出海，东南亚、中东的光伏需求在增长。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "医药板块跌了这么久了，能抄底吗？"
+    </div>
+    <div class="qa-a">
+      "医药板块经历长期调整后，估值已经回到合理区间。创新药出海逻辑持续验证，好几个国产创新药在海外获批上市，这是实打实的利好。<br><br>
+      关注三个方向：创新药（出海+医保谈判）、医疗器械（国产替代）、CXO（海外订单回暖）。<br><br>
+      如果客户之前没配过医药，现在可以开始慢慢建仓，用定投的方式。医药是长坡厚雪的赛道，但短期催化剂还不明确，需要耐心。"
+    </div>
+  </div>
+
+  <!-- 风格与策略 -->
+  <div class="cat-header">风格与策略</div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "现在应该买大盘还是小盘？成长还是价值？"
+    </div>
+    <div class="qa-a">
+      "从估值看，中证1000的分位数最低，沪深300最高。也就是说小盘相对便宜，大盘相对贵。<br><br>
+      但这周价值略占优——银行领涨，科创50跌3.73%。上证50跌1.12%，中证1000跌2.16%，大盘略抗跌。市场处于中报验证窗口，板块分化加剧。<br><br>
+      我的建议是均衡配置：核心仓位放沪深300或中证500指数基金，卫星仓位配一些科创50或中证1000。如果客户风险偏好低，可以加大银行/红利基金的比重。"
+    </div>
+    <div class="bonus">
+      <div class="bonus-label">加分项</div>
+      "从指数权重变化看，电子、银行、非银金融是上证50前三大权重，依次为19.4%、16.97%及14.41%。伴随着电子行业的回调，其占指数权重随之回落。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "现在市场情绪怎么样？是不是该入场了？"
+    </div>
+    <div class="qa-a">
+      "市场情绪偏观望。日均成交额缩至2.2万亿，市场存在一定观望情绪。当前处于中报验证窗口和存量轮动加速的双重观察期。<br><br>
+      估值已经不便宜了——全A PE分位数86.60%，上证指数PE分位数78.54%。内外风险仍存，资金情绪来回反复，板块轮动加剧。<br><br>
+      建议不要追高，等回调再布局。如果一定要现在入场，用定投的方式，分3-6个月慢慢建仓，别一把梭。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "黄金/白银现在能买吗？"
+    </div>
+    <div class="qa-a">
+      "金价持续修复，Au9999约986元/克，COMEX黄金约4611美元/盎司。白银继续反弹，金银比价66附近。<br><br>
+      核心驱动：财政部扩大长期国债回购规模（20亿→40亿美元），压低长端收益率。9月加息概率回落至约30-40%。美债利率回落对贵金属是利好。<br><br>
+      长期逻辑没变：全球央行持续增持，中国央行连续21个月买入，二季度全球央行净购金289吨，同比增长62%。去美元化趋势和地缘冲突都在支撑。<br><br>
+      长期配置可以分批建仓，短期投机建议等方向更明确。黄金ETF是个不错的工具，流动性好、门槛低。"
+    </div>
+    <div class="bonus">
+      <div class="bonus-label">加分项</div>
+      "从投资需求看，本周SPDR黄金ETF持仓增加约15吨。从长周期看，持仓从年初高位持续回落、7月中到低点，随后在低位企稳回升，当前处于震荡修复阶段。"
+    </div>
+  </div>
+
+  <!-- 宏观（精简） -->
+  <div class="cat-header">宏观（精简版）</div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "美联储接下来怎么走？"
+    </div>
+    <div class="qa-a">
+      "7月FOMC以9:3维持利率不变，年内连续第五次按兵不动。但这次删除了前瞻指引、停止点阵图，信号比较模糊。<br><br>
+      好消息是7月CPI 3.4%符合预期，核心CPI 2.5%创五年低位。9月加息概率从上月的47%降至30-40%。12月加息概率约40%。<br><br>
+      但通胀上行隐患未消除——能源价格同比仍涨14.7%，原油当月反弹超20%。另外美国联邦政府债务突破40万亿美元，财政部扩大回购规模应对长端利率上行。关键节点还是9月议息会议。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "国内经济到底怎么样？"
+    </div>
+    <div class="qa-a">
+      "7月多项经济指标继续回落，但新动能贡献率持续提升。<br><br>
+      差的方面：7月工业增加值+4.5%（前值5.3%），社零+0.6%（前值1.0%），固投1-7月-6.7%，房地产投资-19.2%。城镇调查失业率5.2%，环比上升0.2个百分点。<br><br>
+      好的方面：高技术制造业增加值+16.9%，数字产品制造业+17.3%，工业机器人产量增幅超20%。7月货物进出口总额+19.2%，外贸表现超预期。<br><br>
+      简单说：传统领域修复动能不足，但新质生产力延续高速增长。后续随着逆周期调节政策持续落地扩围，内需潜力将进一步释放。"
+    </div>
+    <div class="bonus">
+      <div class="bonus-label">加分项</div>
+      "社融数据显示信贷需求偏弱——7月新增社融1.4万亿，同比多增2710亿，但新增人民币贷款-3400亿，同比多减2900亿。M1同比持平于4.0%，M2同比回落至7.7%。"
+    </div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">
+      <div class="qa-q-icon">Q</div>
+      "人民币会贬值吗？"
+    </div>
+    <div class="qa-a">
+      "不仅没贬值，还走强了。在岸人民币兑美元收报6.7476，盘中最高触及6.7442，创2023年2月以来三年半新高。<br><br>
+      核心支撑是出口——7月出口同比大增23.9%，全年货物贸易顺差预计可达1.2万亿美元。出口高景气成为汇率稳定的核心'压舱石'。<br><br>
+      预计8月下旬人民币在6.6-7.0区间双向波动，整体延续'稳中有升、弹性增强'的运行特征。日常使用没必要急着换美元。"
+    </div>
+    <div class="bonus">
+      <div class="bonus-label">加分项</div>
+      "这轮人民币走强并非被动跟随美元走弱，而是由多重坚实基本面支撑。美元指数维持高位震荡、多数非美货币普跌的背景下，人民币逆势攀升，韧性显著凸显。"
+    </div>
+  </div>
+
+  <!-- 万能话术 -->
+  <div class="cat-header">万能应对（我没要求哈，AI老师主动要帮你整理的以下。。。</div>
+
+  <div class="card" style="background: var(--surface-alt); border: none;">
+    <div class="card-body" style="margin-bottom: 16px;">
+      <strong>不确定时：</strong>"这个问题我需要再确认一下最新数据，不过从大方向看……"（转到熟悉领域）<br><br>
+      <strong>问太细时：</strong>"这个细节我可能需要查一下，但我可以告诉你大逻辑……"<br><br>
+      <strong>被质疑时：</strong>"你说得有道理，市场确实有多种可能。我的看法是基于目前的数据和政策导向，但我会持续跟踪。"<br><br>
+      <strong>被问买什么时：</strong>"作为渠道销售，我不能给具体投资建议。但从市场角度看，现在估值不便宜，建议不要追高，等回调再布局。分散配置，不要all in一个方向。"
+    </div>
+  </div>
+
+  <div class="footer">
+    数据来源：傻逼浙商周报<br>
+    仅供参考，不构成投资建议。市场有风险，投资需谨慎。嘻嘻
+  </div>
+
+</div>
+
+</div>
+
+<script>
+function switchTab(idx) {
+  document.querySelectorAll('.nav-item').forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.panel').forEach((p, i) => {
+    p.classList.toggle('active', i === idx);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
